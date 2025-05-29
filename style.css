@@ -1,0 +1,279 @@
+/* General Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #F0F2F5;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2E8B57;
+  color: white;
+  padding: 16px;
+  font-size: 20px;
+}
+
+header > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hamburger {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -260px;
+  width: 250px;
+  height: 100%;
+  background: #1F2937;
+  color: white;
+  padding: 20px;
+  transition: right 0.3s;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  box-shadow: -3px 0 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px 0 0 8px;
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+.side-menu button {
+  background: #2E8B57;
+  border: none;
+  margin: 10px 0;
+  padding: 12px;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: background 0.3s;
+  box-shadow: 0 3px 6px rgba(46, 139, 87, 0.3);
+  cursor: pointer;
+}
+
+.side-menu button:hover {
+  background: #246b44;
+}
+
+/* Logout button specific styling in side menu */
+.side-menu button[onclick="logout()"] {
+  background: #dc3545;
+  margin-top: 20px;
+  border-top: 1px solid #495057;
+  padding-top: 15px;
+  box-shadow: 0 3px 6px rgba(220, 53, 69, 0.4);
+}
+
+.side-menu button[onclick="logout()"]:hover {
+  background: #c82333;
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 5;
+}
+
+.section {
+  padding: 20px;
+}
+
+input, button, select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border: 1px solid #2E8B57;
+  background-color: #e8f5f0;
+}
+
+button {
+  background: #2E8B57;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  box-shadow: 0 3px 6px rgba(46, 139, 87, 0.4);
+}
+
+button:hover {
+  background: #246b44;
+  box-shadow: 0 5px 12px rgba(36, 107, 68, 0.5);
+}
+
+.suggestions {
+  background: white;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  border-radius: 8px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+}
+
+.suggestions div {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.suggestions div:hover {
+  background: #f0f0f0;
+}
+
+.result, .message {
+  background: #ffffff;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+  font-size: 16px;
+}
+
+.hidden {
+  display: none;
+}
+
+.back-button {
+  background: #d9534f;
+  color: white;
+  margin-top: 10px;
+  box-shadow: 0 3px 6px rgba(217, 83, 79, 0.4);
+}
+
+.back-button:hover {
+  background: #c9302c;
+  box-shadow: 0 5px 10px rgba(201, 48, 44, 0.5);
+}
+
+/* Login page specific styles */
+#loginPage .section {
+  max-width: 400px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+#loginPage h2 {
+  text-align: center;
+  color: #2E8B57;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+#loginPage h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+/* Login type buttons */
+#loginPage button:not(.back-button) {
+  background: linear-gradient(135deg, #2E8B57, #3CB371);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  margin: 8px 0;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(46, 139, 87, 0.3);
+}
+
+#loginPage button:not(.back-button):hover {
+  background: linear-gradient(135deg, #246b44, #2E8B57);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(46, 139, 87, 0.4);
+}
+
+/* Admin login form container */
+#adminLoginForm {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+}
+
+/* Input styling for login */
+#loginPage input {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 12px 15px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+#loginPage input:focus {
+  border-color: #2E8B57;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+}
+
+/* Message styling */
+#loginMessage {
+  text-align: center;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* Spares List Table */
+#sparesList table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+#sparesList th, #sparesList td {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* Highlight row fully in red if balance quantity less than 5 */
+.low-quantity {
+  background-color: #d9534f; /* bootstrap danger red */
+  color: white;
+}
